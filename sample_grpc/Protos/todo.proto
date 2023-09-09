@@ -2,14 +2,29 @@ syntax = "proto3";
 
 option csharp_namespace = "sample_grpc";
 
+import "google/api/annotations.proto";
+
 package todo;
 
 service ToDo {
-  rpc Create (ToDoItemCreateRequest) returns (ToDoItemCreateResponse);
+  rpc Create (ToDoItemCreateRequest) returns (ToDoItemCreateResponse) {
+    option (google.api.http) = {
+      post: "/v1/todos",
+      body: "*"
+    };
+  };
 
-  rpc GetById (GetByIdRequest) returns (GetByIdResponse);
+  rpc GetById (GetByIdRequest) returns (GetByIdResponse) {
+    option (google.api.http) = {
+      get: "/v1/todos/{id}"
+    };
+  };
 
-  rpc GetAll (GetAllRequest) returns (GetAllResponse);
+  rpc GetAll (GetAllRequest) returns (GetAllResponse) {
+    option (google.api.http) = {
+      get: "/v1/todos"
+    };
+  };
   
   rpc Update (UpdateRequest) returns (UpdateResponse);
   

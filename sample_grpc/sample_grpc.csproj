@@ -17,6 +17,7 @@
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
+        <PackageReference Include="Microsoft.AspNetCore.Grpc.JsonTranscoding" Version="7.0.10" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.10">
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -25,5 +26,9 @@
     </ItemGroup>
 
 
+
+    <ItemGroup>
+      <Folder Include="google\api\" />
+    </ItemGroup>
 
 </Project>

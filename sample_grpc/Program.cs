@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlite("Data Source=Data/todoapp.db"));
 
-builder.Services.AddGrpc();
+builder.Services.AddGrpc().AddJsonTranscoding();
 
 var app = builder.Build();
 

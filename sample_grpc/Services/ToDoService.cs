@@ -82,11 +82,11 @@ public class ToDoService : ToDo.ToDoBase
         _context.Update(item);
         await _context.SaveChangesAsync();
 
-        return await Task.FromResult(new UpdateResponse()
+        return new UpdateResponse()
         {
             Id = item.Id,
             Status = item.Status
-        });
+        };;
     }
 
     public override async Task<DeleteResponse> Delete(DeleteRequest request, ServerCallContext context)
