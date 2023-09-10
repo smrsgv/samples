@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrpcSample.Server", "GrpcSample.Server\GrpcSample.Server.csproj", "{B27E9A50-D750-4E52-BA12-FAB273486B46}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrpcSample.Client", "GrpcSample.Client\GrpcSample.Client.csproj", "{E65FD937-98D5-4A02-905D-A34A42525FDF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{B27E9A50-D750-4E52-BA12-FAB273486B46}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B27E9A50-D750-4E52-BA12-FAB273486B46}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B27E9A50-D750-4E52-BA12-FAB273486B46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E65FD937-98D5-4A02-905D-A34A42525FDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E65FD937-98D5-4A02-905D-A34A42525FDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E65FD937-98D5-4A02-905D-A34A42525FDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E65FD937-98D5-4A02-905D-A34A42525FDF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
