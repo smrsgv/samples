@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using sample_grpc.Models;
+﻿using GrpcSample.Server.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace sample_grpc.Data;
+namespace GrpcSample.Server.Data;
 
 public sealed class AppDbContext : DbContext
 {

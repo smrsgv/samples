@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
-using sample_grpc.Data;
-using sample_grpc.Services;
+using GrpcSample.Server.Data;
+using GrpcSample.Server.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

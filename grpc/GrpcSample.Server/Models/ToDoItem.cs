@@ -1,4 +1,4 @@
-﻿namespace sample_grpc.Models;
+﻿namespace GrpcSample.Server.Models;
 
 public class ToDoItem
 {

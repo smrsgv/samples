@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace sample_grpc.Data.Migrations
+namespace GrpcSample.Server.Data.Migrations
 {
     /// <inheritdoc />
     public partial class InitialCreate : Migration

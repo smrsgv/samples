@@ -1,9 +1,9 @@
 ﻿using Grpc.Core;
+using GrpcSample.Server.Data;
+using GrpcSample.Server.Models;
 using Microsoft.EntityFrameworkCore;
-using sample_grpc.Data;
-using sample_grpc.Models;
 
-namespace sample_grpc.Services;
+namespace GrpcSample.Server.Services;
 
 public class ToDoService : ToDo.ToDoBase
 {
@@ -77,6 +77,11 @@ public class ToDoService : ToDo.ToDoBase
     public override async Task<UpdateResponse> Update(UpdateRequest request, ServerCallContext context)
     {
         var item = await _context.ToDoItems.FirstOrDefaultAsync(x => x.Id == request.Id);
+        if (item == null)
+        {
+            throw new RpcException(new Status(StatusCode.NotFound, $"There is no item with Id = {request.Id}"));
+        }
+
         item.Status = request.Status;
 
         _context.Update(item);
@@ -86,7 +91,7 @@ public class ToDoService : ToDo.ToDoBase
         {
             Id = item.Id,
             Status = item.Status
-        };;
+        };
     }
 
     public override async Task<DeleteResponse> Delete(DeleteRequest request, ServerCallContext context)
