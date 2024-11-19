@@ -1,25 +1,27 @@
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddHttpClient("weather", client =>
+builder.Services.AddServiceDiscovery();
+
+// configure service discovery for all http clients
+// builder.Services.ConfigureHttpClientDefaults(options =>
+// {
+//     options.AddServiceDiscovery();
+// });
+// or configure service discovery for particular one
+builder.Services.AddHttpClient("secondapi", client =>
 {
-    client.BaseAddress = new Uri("http://localhost:6000");
-});
+    client.BaseAddress = new Uri("https+http://second");
+}).AddServiceDiscovery();
 
 var app = builder.Build();
 
 app.MapGet("/weatherforecast", async (IHttpClientFactory factory) =>
 {
-    using HttpClient client = factory.CreateClient("weather");
+    using HttpClient client = factory.CreateClient("secondapi");
 
-    var forecast =  await client.GetFromJsonAsync<WeatherForecast[]>("weatherforecast");
-    
-    return forecast;
-})
-.WithName("GetWeatherForecast");
+    var res = await client.GetStringAsync("weatherforecast");
+
+    return res;
+});
 
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
