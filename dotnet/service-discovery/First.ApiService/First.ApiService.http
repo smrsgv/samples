@@ -1,6 +1,1 @@
-@First.ApiService_HostAddress = http://localhost:7000
-
-GET {{First.ApiService_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
+GET {{protocol}}{{host}}:{{port}}/weatherforecast/
